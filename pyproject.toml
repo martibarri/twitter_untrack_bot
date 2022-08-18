@@ -5,7 +5,7 @@ description = "Telegram bot that removes the tracking query parameter 't' on Twi
 authors = ["Martí Barri <martibarri@proton.me>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.10"
 python-dotenv = "^0.20.0"
 python-telegram-bot = "^20.0a2"
 ptbcontrib = {git = "https://github.com/python-telegram-bot/ptbcontrib.git", rev = "main"}
