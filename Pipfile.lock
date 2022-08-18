@@ -85,7 +85,7 @@
                 "extract_urls"
             ],
             "git": "https://github.com/python-telegram-bot/ptbcontrib.git",
-            "ref": "4513951f2474ecbe46073c8cd24cab338ebe3872"
+            "ref": "main"
         },
         "python-dotenv": {
             "hashes": [
