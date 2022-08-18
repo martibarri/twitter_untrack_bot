@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2545142d3a1530b12902d263ef7b8b8b15eedd97e479f6885846166353fd75a4"
+            "sha256": "98c75d51857195ef94dcb94ab220905b2be808c59a579c942707091891cbee98"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -81,6 +81,9 @@
             "version": "==3.3"
         },
         "ptbcontrib": {
+            "extras": [
+                "extract_urls"
+            ],
             "git": "https://github.com/python-telegram-bot/ptbcontrib.git",
             "ref": "4513951f2474ecbe46073c8cd24cab338ebe3872"
         },
