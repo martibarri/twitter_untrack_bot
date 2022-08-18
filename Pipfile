@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 python-dotenv = "*"
 python-telegram-bot = "*"
-ptbcontrib = {git = "https://github.com/python-telegram-bot/ptbcontrib.git"}
+ptbcontrib = {ref = "main", git = "https://github.com/python-telegram-bot/ptbcontrib.git"}
 
 [dev-packages]
 black = "*"
