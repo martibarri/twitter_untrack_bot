@@ -21,6 +21,9 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     await update.message.reply_text(
         "Telegram bot that removes the tracking query parameter 't' on Twitter urls."
     )
+    await update.message.reply_text(
+        "The bot must be an admin and have the `Delete messages` permission to work on groups"
+    )
 
 
 async def remove_tracking(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
