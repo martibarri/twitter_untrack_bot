@@ -7,7 +7,7 @@ h11==0.12.0; python_version >= '3.6'
 httpcore==0.15.0; python_version >= '3.7'
 httpx==0.23.0; python_version >= '3.7'
 idna==3.3; python_version >= '3.5'
-git+https://github.com/python-telegram-bot/ptbcontrib.git@main#egg=ptbcontrib[extract_urls]
+-e git+https://github.com/python-telegram-bot/ptbcontrib.git@main#egg=ptbcontrib[extract_urls]
 python-dotenv==0.20.0
 python-telegram-bot==20.0a2
 pytz==2022.2.1
