@@ -4,6 +4,7 @@ from urllib.parse import parse_qs, urlparse
 from dotenv import load_dotenv
 from ptbcontrib import extract_urls
 from telegram import Update
+from telegram.constants import ParseMode
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -19,10 +20,12 @@ TELEGRAM_TOKEN = getenv("TELEGRAM_TOKEN")
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send a message when the command /help is issued."""
     await update.message.reply_text(
-        "Telegram bot that removes the tracking query parameter 't' on Twitter urls."
+        "Telegram bot that removes the tracking query parameter `t` on Twitter urls\.",
+        parse_mode=ParseMode.MARKDOWN_V2
     )
     await update.message.reply_text(
-        "The bot must be an admin and have the `Delete messages` permission to work on groups"
+        "The bot must be an admin and have the `Delete messages` permission to work on groups\.",
+        parse_mode=ParseMode.MARKDOWN_V2
     )
 
 
@@ -48,7 +51,7 @@ async def remove_tracking(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             await update.message.delete()
             await context.application.bot.send_message(
                 chat_id=update.effective_message.chat_id,
-                text="Twitter tracker removed by @twitter_untrack_bot",
+                text=f"{update.effective_user.name}:"
             )
             await context.application.bot.send_message(
                 chat_id=update.effective_message.chat_id, text=message
