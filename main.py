@@ -43,7 +43,7 @@ async def remove_tracking(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 try:
                     _u = urlparse(u)
                     if parse_qs(_u.query).get("t"):
-                        message = message.replace(u, _u._replace(query="t=").geturl())
+                        message = message.replace(u, _u._replace(query="").geturl())
                         edited = True
                 except Exception:
                     pass
