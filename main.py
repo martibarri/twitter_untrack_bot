@@ -21,11 +21,11 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     """Send a message when the command /help is issued."""
     await update.message.reply_text(
         "Telegram bot that removes the tracking query parameter `t` on Twitter urls\.",
-        parse_mode=ParseMode.MARKDOWN_V2
+        parse_mode=ParseMode.MARKDOWN_V2,
     )
     await update.message.reply_text(
         "The bot must be an admin and have the `Delete messages` permission to work on groups\.",
-        parse_mode=ParseMode.MARKDOWN_V2
+        parse_mode=ParseMode.MARKDOWN_V2,
     )
 
 
@@ -51,11 +51,9 @@ async def remove_tracking(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             await update.message.delete()
             await context.application.bot.send_message(
                 chat_id=update.effective_message.chat_id,
-                text=f"{update.effective_user.name}:"
+                text=f"{update.effective_user.name}:",
             )
-            await context.application.bot.send_message(
-                chat_id=update.effective_message.chat_id, text=message
-            )
+            await context.application.bot.send_message(chat_id=update.effective_message.chat_id, text=message)
 
 
 def main() -> None:
@@ -66,9 +64,7 @@ def main() -> None:
     application.add_handler(CommandHandler("help", help_command))
 
     # Process TEXT messages
-    application.add_handler(
-        MessageHandler(filters.TEXT & ~filters.COMMAND, remove_tracking)
-    )
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, remove_tracking))
 
     # Run the bot until the user presses Ctrl-C
     application.run_polling()
