@@ -39,12 +39,13 @@ async def remove_tracking(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         edited = False
         message = update.message.text
         for u in urls:
-            if "twitter.com" in u:
+            if ("twitter.com" in u) or ("x.com" in u):
                 try:
                     _u = urlparse(u)
-                    if parse_qs(_u.query).get("t"):
-                        message = message.replace(u, _u._replace(query="").geturl())
-                        edited = True
+                    if ("twitter.com" == _u.hostname) or ("x.com" == _u.hostname):
+                        if parse_qs(_u.query).get("t"):
+                            message = message.replace(u, _u._replace(query="").geturl())
+                            edited = True
                 except Exception:
                     pass
         if edited:
@@ -53,7 +54,10 @@ async def remove_tracking(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 chat_id=update.effective_message.chat_id,
                 text=f"{update.effective_user.name}:",
             )
-            await context.application.bot.send_message(chat_id=update.effective_message.chat_id, text=message)
+            await context.application.bot.send_message(
+                chat_id=update.effective_message.chat_id,
+                text=message,
+            )
 
 
 def main() -> None:
